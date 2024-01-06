@@ -20,7 +20,8 @@ class ViewController: UIViewController {
 		//background
 		view.backgroundColor = UIColor(red: 1.0, green: 245/255, blue: 1.0, alpha: 1.0)
 		//White frame
-		firstPageFrame.image = UIImage(named: "recFrame.png")
+		firstPageFrame.image = UIImage(named: "recFrame")
+		
 		firstPageFrame.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(firstPageFrame)
 		
@@ -31,15 +32,15 @@ class ViewController: UIViewController {
 		view.addSubview(firstPageWelcome)
 		
 		//CGPA Button
-		firstPageCGPAButton.setImage(UIImage(named: "CGPAButton.png"), for: .normal)
+		firstPageCGPAButton.setImage(UIImage(named: "CGPAButton"), for: .normal)
 		firstPageCGPAButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
 		
 		firstPageCGPAButton.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(firstPageCGPAButton)
 		
 		//Semester GPA Button
-		firstPageSemesterButton.setImage(UIImage(named: "SGPAButton.png"), for: .normal)
-		firstPageSemesterButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+		firstPageSemesterButton.setImage(UIImage(named: "SGPAButton"), for: .normal)
+		firstPageSemesterButton.addTarget(self, action: #selector(SemesterGPAButtonAction), for: .touchUpInside)
 		
 		firstPageSemesterButton.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(firstPageSemesterButton)
@@ -85,6 +86,11 @@ class ViewController: UIViewController {
 	@objc func buttonAction() {
 		print("I was hit")
 	}
+	@objc func SemesterGPAButtonAction() {
+		let infoPage = infoPageVC()
+		navigationController?.pushViewController(infoPage, animated: true)
+	}
+
 
 }
 
